@@ -2,6 +2,7 @@ from PyQt5 import QtWidgets, uic
 from PyQt5.QtSerialPort import QSerialPort, QSerialPortInfo
 from PyQt5.QtCore import QIODevice
 from struct import *
+import functools
 
 app = QtWidgets.QApplication([])
 ui = uic.loadUi("C:/Users/Данила/Autonomous_platform/PyQt5/terminal.ui")
@@ -18,8 +19,10 @@ index_out_mes = 0
 
 def onRead():
     rx = serial.readLine()
-    # rxs =  str(rx, 'utf-8').strip
+    #b = unpack("H", rx[:2])
+    #rxs =  str(rx, 'utf-8').strip
     # data = rxs.split(',')
+    #res = functools.reduce(lambda sub, ele: sub * 10 + ele, b)
     print(rx)
 
 def onWrite():
